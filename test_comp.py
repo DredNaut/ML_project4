@@ -1,5 +1,9 @@
 import compress
 import numpy as np
 
-X = load_data('Data/Train/')
-compress_images(X,100)
+# Real training
+train = 'Data/Train/'
+small = 'Data/small/'
+
+X = compress.load_data(small)
+compress.compress_images(X,100)

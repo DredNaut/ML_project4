@@ -30,10 +30,10 @@ X = np.array([[1,1],[1,0],[2,2],[2,1],[2,4],[3,4],[3,3],[3,2],[4,4],[4,5],[5,5],
 
 # Centering and Scaling Test
 Z = pca.compute_Z(X,True,True)
-print("[RESULT] After scaling and centering Value found for Z = ", Z)
+#print("[RESULT] After scaling and centering Value found for Z = ", Z)
 COV = pca.compute_covariance_matrix(Z)
-print("[RESULT] COV = ", COV)
+#print("[RESULT] COV = ", COV)
 L, PCS = pca.find_pcs(COV)
-print("[RESULT] L = ", L)
-print("[RESULT] PCS = ", PCS)
+#print("[RESULT] L = ", L)
+#print("[RESULT] PCS = ", PCS)
 Z_star = pca.project_data(Z, PCS, L, 1, 0)

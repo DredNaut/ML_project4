@@ -25,14 +25,14 @@ def compute_Z(X, centering=True, scaling=False):
 	if centering and scaling:
 #		print("[TEST] Starting centering, subtracting mean from each feature")
 		X_avg = np.mean(X, axis=0)
-		print("[TEST] X_avg = ",X_avg)
+		#print("[TEST] X_avg = ",X_avg)
 		Z = X - X_avg
 		Z = np.round(Z, decimals=2)
-		print("[TEST] After centering Z = ",Z)
-		print("[TEST] Starting scaling")
+		#print("[TEST] After centering Z = ",Z)
+		#print("[TEST] Starting scaling")
 		Z = Z/np.std(Z,axis=0)
 		Z = np.round(Z, decimals=2)
-		print("[TEST] After scaling Z = ",Z)
+		#print("[TEST] After scaling Z = ",Z)
 
 
 
@@ -42,8 +42,8 @@ def compute_Z(X, centering=True, scaling=False):
 # numpy array).
 def compute_covariance_matrix(Z):
 #	print("[TEST] Computing covariance matrix")
-	print("ZT = \n",np.transpose(Z))
-	print("Z = \n",Z)
+#	print("ZT = \n",np.transpose(Z))
+#	print("Z = \n",Z)
 	return np.dot(np.transpose(Z),Z)
 
 
@@ -52,6 +52,7 @@ def compute_covariance_matrix(Z):
 # numpy array). You will want to use np.linalg.eig for this.
 def find_pcs(COV):
 #	print("[TEST] Find pcs")
+	#print(COV.shape)
 	L, PCS = np.linalg.eig(COV)
 #	print("EiganValues = ",L)
 #	print("EiganVectors = ",PCS)
@@ -67,11 +68,11 @@ def find_pcs(COV):
 # explained by the projection. 0 ≤v≤ 1. If v= 0, then k is used instead. Assume they are never both 0 or
 # both > 0. This function will return Z_star, the projected data.
 def project_data(Z, PCS, L, k, var):
-	print("[TEST] Project data")
-	print("Z",Z)
+	#print("[TEST] Project data")
+	#print("Z",Z)
 	proj1 = np.dot(Z,PCS[0])
 	proj2 = np.dot(Z,PCS[1])
-	print("proj1 = ",proj1)
-	print("proj2 = ",proj2)
+	#print("proj1 = ",proj1)
+	#print("proj2 = ",proj2)
 
 	return (proj1,proj2)
